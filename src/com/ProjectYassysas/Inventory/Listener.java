@@ -2,7 +2,6 @@ package com.ProjectYassysas.Inventory;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.configuration.MemorySection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
@@ -84,6 +83,8 @@ public class Listener implements org.bukkit.event.Listener{
 			if(e.getCurrentItem().getType().equals(Material.LEASH) && e.getCurrentItem().getItemMeta().getDisplayName().contains("Amulet")){
 				p.sendMessage("Amulet");
 				//PlayerFile.get().set("", arg1);
+				
+				//testytestington
 			}
 			if((e.getCurrentItem().getType().equals(Material.STONE_BUTTON) || e.getCurrentItem().getType().equals(Material.WOOD_BUTTON)) && e.getCurrentItem().getItemMeta().getDisplayName().contains("Ring")){
 				p.sendMessage("Ring");
