@@ -20,8 +20,8 @@ public class Listener implements org.bukkit.event.Listener{
 	public void onPlayerJoin(PlayerJoinEvent e){
 		Player p = e.getPlayer();
 		
-		PlayerFile.create(p);
-		PlayerFile.save();
+			PlayerFile.create(p);
+			PlayerFile.save();
 		
 		if(p.getInventory().getItem(8) == null || p.getInventory().getItem(8) != Items.backpack){
 			p.getInventory().setItem(8, Items.backpack);
@@ -55,6 +55,9 @@ public class Listener implements org.bukkit.event.Listener{
 	public void onPlayerDrop(PlayerDropItemEvent e){
 		if(e.getItemDrop().getItemStack().isSimilar(Items.backpack)){
 			e.setCancelled(true);
+			Player p = e.getPlayer();
+			
+			  p.sendMessage(ItemStackUtil.deserialize(e.getItemDrop().getItemStack()));
 		}
 	}
 	
@@ -70,7 +73,7 @@ public class Listener implements org.bukkit.event.Listener{
 		
 		if(e.getCurrentItem().isSimilar(Items.accessories)){
 			e.setCancelled(true);
-			p.openInventory(Inventories.AccessoryInv());
+			p.openInventory(Inventories.AccessoryInv(p));
 		}
 		
 		if(p.getOpenInventory().getTitle().equals(ChatColor.GOLD + "Backpack")){
@@ -81,13 +84,46 @@ public class Listener implements org.bukkit.event.Listener{
 			e.setCancelled(true);
 			if(!e.getCurrentItem().hasItemMeta()){return;}
 			if(e.getCurrentItem().getType().equals(Material.LEASH) && e.getCurrentItem().getItemMeta().getDisplayName().contains("Amulet")){
-				p.sendMessage("Amulet");
-				//PlayerFile.get().set("", arg1);
-				
-				//testytestington
+				/*
+				if(e.getClickedInventory().getType() != InventoryType.CHEST){
+					PlayerFile.load(p);
+					PlayerFile.get().set("Accesorries.Amulet", e.getCurrentItem());
+					PlayerFile.save();
+					
+					e.getCurrentItem().setType(null);
+					p.updateInventory();
+					
+					p.openInventory(Inventories.AccessoryInv(p));
+				}
+				*/
 			}
 			if((e.getCurrentItem().getType().equals(Material.STONE_BUTTON) || e.getCurrentItem().getType().equals(Material.WOOD_BUTTON)) && e.getCurrentItem().getItemMeta().getDisplayName().contains("Ring")){
-				p.sendMessage("Ring");
+				
+				/*
+				PlayerFile.load(p);
+				PlayerFile.get().set("Accesorries.Ring1", e.getCurrentItem());
+				PlayerFile.save();
+				
+				e.getCurrentItem().setType(null);
+				p.updateInventory();
+				
+				p.openInventory(Inventories.AccessoryInv(p));
+				
+				
+				
+				
+				PlayerFile.load(p);
+				PlayerFile.get().set("Accesorries.Ring2", e.getCurrentItem());
+				PlayerFile.save();
+				
+				e.getCurrentItem().setType(null);
+				p.updateInventory();
+				
+				p.openInventory(Inventories.AccessoryInv(p));
+				*/
+				
+				
+				
 			}
 		}
 	}

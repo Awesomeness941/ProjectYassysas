@@ -1,7 +1,9 @@
 package com.ProjectYassysas.Inventory;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import com.ProjectYassysas.Main.PlayerFile;
 import net.md_5.bungee.api.ChatColor;
 
 public class Inventories{
@@ -13,7 +15,7 @@ public class Inventories{
 		return inv;
 	}
 	
-	public static Inventory AccessoryInv(){
+	public static Inventory AccessoryInv(Player p){
 		Inventory inv = Bukkit.getServer().createInventory(null, 9, ChatColor.DARK_GRAY + "Accessories");
 		
 		inv.setItem(0, Items.border);
@@ -25,6 +27,14 @@ public class Inventories{
 		inv.setItem(6, Items.border);
 		inv.setItem(7, Items.ringSlot);
 		inv.setItem(8, Items.border);
+		
+		PlayerFile.load(p);
+		//if(PlayerFile.get().get("Accesorries.Amulet").getItemStack)
+		
+		
+		
+		
+		
 		return inv;
 	}
 }
