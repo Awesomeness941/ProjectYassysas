@@ -5,5 +5,8 @@
 	<classpathentry kind="lib" path="D:/EclipseResources/spigot.1.8.8.jar"/>
 	<classpathentry kind="lib" path="D:/EclipseResources/BossBarAPI_v1.0.6.jar"/>
 	<classpathentry kind="lib" path="D:/EclipseResources/ActionBarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LordHi56/Desktop/resourcess/spigot.1.8.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LordHi56/Desktop/resourcess/BossBarAPI_v1.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LordHi56/Desktop/resourcess/ActionBarAPI.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -10,6 +10,7 @@ public class Main extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new com.ProjectYassysas.Attributes.Listener(), this);
 		plugin = this;
 	}
+	//fuck you
 	@Override
 	public void onDisable(){}
 }
