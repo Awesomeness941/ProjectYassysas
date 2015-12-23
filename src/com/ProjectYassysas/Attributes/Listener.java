@@ -19,6 +19,7 @@ public class Listener implements org.bukkit.event.Listener{
 	@EventHandler
 	public void Damage(EntityDamageEvent e){
 		//if(e.getEntityType()!=EntityType.PLAYER){
+		
 		e.setDamage(0);
 		
 		//}

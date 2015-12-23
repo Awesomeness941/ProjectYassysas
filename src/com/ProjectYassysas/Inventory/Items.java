@@ -5,8 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import net.minecraft.server.v1_8_R3.NBTTagList;
 
@@ -15,8 +14,8 @@ public class Items{
 
 	//AccessoryInv
 	public static ItemStack border = Item(Material.STAINED_GLASS_PANE, 1, 8, ChatColor.BLACK + "", null);
-	public static ItemStack ringSlot = Item(Material.BARRIER, 1, 15, ChatColor.GRAY + "Rings go in this slot", null);
-	public static ItemStack amuletSlot = Item(Material.BARRIER, 1, 15, ChatColor.GRAY + "Amulets go in this slot", null);
+	public static ItemStack ringSlot = Item(Material.BARRIER, 1, 15, ChatColor.GRAY + "No ring equipped", null);
+	public static ItemStack amuletSlot = Item(Material.BARRIER, 1, 15, ChatColor.GRAY + "No amulet equipped", null);
 	
 	//Backpack
 	public static ItemStack backpack = Item(Material.ENDER_CHEST, 1, 0, ChatColor.GOLD + "Backpack", new String[] {ChatColor.GRAY + "Right or left click to open"});

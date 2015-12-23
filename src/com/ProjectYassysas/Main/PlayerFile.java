@@ -27,16 +27,32 @@ public class PlayerFile{
         config = YamlConfiguration.loadConfiguration(file);
     }
   
-    public static File getfolder(){return folder;}
+    public static boolean exists(Player p){
+    	load(p);
+    	if (!df.exists()) df.mkdir();
+        if (file.exists()){return true;}
+		return false;
+    }
+    
+    public static File getfolder(Player p){
+    	load(p);
+    	return folder;
+    	}
   
-    public static File getfile(){return file;}
+    public static File getfile(Player p){
+    	load(p);
+    	return file;
+    	}
   
-    public static void load(Player p){
+    private static void load(Player p){
         file = new File(df, "player data" + File.separator + p.getUniqueId() + ".yml");
         config = YamlConfiguration.loadConfiguration(file);
     }
   
-    public static FileConfiguration get(){return config;}
+    public static FileConfiguration get(Player p){
+    	load (p);
+    	return config;
+    	}
   
     public static void save(){
         try {
@@ -44,5 +60,23 @@ public class PlayerFile{
         }catch(Exception e){
             Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Error saving " + file.getName() + "!");
         }
+    }
+    
+    
+    public static void defaultPlayerFile(Player p){
+		PlayerFile.create(p);
+		FileConfiguration pf = PlayerFile.get(p);
+		
+		//PlayerInfo Section
+		pf.set("PlayerInfo.LastName", p.getPlayer().getDisplayName());
+		PlayerFile.save();
+		
+		//Accessories Section
+		pf.set("Inventory.Accessories.Ring1", "none");
+		PlayerFile.save();
+		pf.set("Inventory.Accessories.Amulet", "none");
+		PlayerFile.save();
+		pf.set("Inventory.Accessories.Ring2", "none");
+		PlayerFile.save();
     }
 }
